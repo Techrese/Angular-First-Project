@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+   
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
