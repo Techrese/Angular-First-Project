@@ -3,12 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "module": "esnext",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": false,
+    "experimentalDecorators": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
