@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\recipes\recipe.model.ts" />
+    <None Remove="ClientApp\src\app\Shared\dropdown.directive.ts" />
     <None Remove="ClientApp\src\app\Shared\ingredients.model.ts" />
   </ItemGroup>
 
