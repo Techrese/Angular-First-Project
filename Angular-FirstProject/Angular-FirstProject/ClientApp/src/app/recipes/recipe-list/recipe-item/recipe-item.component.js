@@ -9,9 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeItemComponent = void 0;
 var core_1 = require("@angular/core");
 var RecipeItemComponent = /** @class */ (function () {
-    function RecipeItemComponent() {
+    function RecipeItemComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipeItemComponent.prototype.ngOnInit = function () {
+    };
+    RecipeItemComponent.prototype.onSelected = function () {
+        this.recipeService.recipeSelected.emit(this.recipe);
     };
     __decorate([
         core_1.Input()

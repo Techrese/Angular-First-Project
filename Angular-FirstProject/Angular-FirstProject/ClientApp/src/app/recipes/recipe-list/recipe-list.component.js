@@ -8,15 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeListComponent = void 0;
 var core_1 = require("@angular/core");
-var recipe_model_1 = require("../recipe.model");
 var RecipeListComponent = /** @class */ (function () {
-    function RecipeListComponent() {
-        this.recipes = [
-            new recipe_model_1.Recipe('A test recipe', 'simple test', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg'),
-            new recipe_model_1.Recipe('A test recipe', 'simple test', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg')
-        ];
+    function RecipeListComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipeListComponent.prototype.ngOnInit = function () {
+        this.recipes = this.recipeService.getRecipes();
     };
     RecipeListComponent = __decorate([
         core_1.Component({

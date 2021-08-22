@@ -8,16 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipesComponent = void 0;
 var core_1 = require("@angular/core");
+var recipe_service_1 = require("./recipe.service");
 var RecipesComponent = /** @class */ (function () {
-    function RecipesComponent() {
+    function RecipesComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.recipeService.recipeSelected.subscribe(function (recipe) {
+            _this.selectedRecipe = recipe;
+        });
     };
     RecipesComponent = __decorate([
         core_1.Component({
             selector: 'app-recipes',
             templateUrl: './recipes.component.html',
-            styleUrls: ['./recipes.component.css']
+            styleUrls: ['./recipes.component.css'],
+            providers: [recipe_service_1.RecipeService]
         })
     ], RecipesComponent);
     return RecipesComponent;

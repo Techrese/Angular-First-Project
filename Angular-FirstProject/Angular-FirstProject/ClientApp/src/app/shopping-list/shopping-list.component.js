@@ -8,15 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShoppingListComponent = void 0;
 var core_1 = require("@angular/core");
-var ingredients_model_1 = require("../Shared/ingredients.model");
 var ShoppingListComponent = /** @class */ (function () {
-    function ShoppingListComponent() {
-        this.ingredients = [
-            new ingredients_model_1.Ingredient('Apples', 1),
-            new ingredients_model_1.Ingredient('Tomatoes', 10)
-        ];
+    function ShoppingListComponent(slService) {
+        this.slService = slService;
     }
     ShoppingListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ingredients = this.slService.getIngredients();
+        this.slService.ingredientChanged.subscribe(function (ingredients) {
+            _this.ingredients = ingredients;
+        });
     };
     ShoppingListComponent = __decorate([
         core_1.Component({

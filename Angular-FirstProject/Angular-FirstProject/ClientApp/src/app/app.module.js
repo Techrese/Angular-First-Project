@@ -18,6 +18,7 @@ var recipe_list_component_1 = require("./recipes/recipe-list/recipe-list.compone
 var recipe_detail_component_1 = require("./recipes/recipe-detail/recipe-detail.component");
 var recipe_item_component_1 = require("./recipes/recipe-list/recipe-item/recipe-item.component");
 var dropdown_directive_1 = require("./Shared/dropdown.directive");
+var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,7 +38,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
             ],
-            providers: [],
+            providers: [shopping_list_service_1.ShoppingListService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

@@ -30,8 +30,10 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\recipes\recipe.model.ts" />
+    <None Remove="ClientApp\src\app\recipes\recipe.service.ts" />
     <None Remove="ClientApp\src\app\Shared\dropdown.directive.ts" />
     <None Remove="ClientApp\src\app\Shared\ingredients.model.ts" />
+    <None Remove="ClientApp\src\app\shopping-list\shopping-list.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
