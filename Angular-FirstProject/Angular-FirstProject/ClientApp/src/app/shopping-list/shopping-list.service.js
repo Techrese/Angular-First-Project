@@ -24,6 +24,11 @@ var ShoppingListService = /** @class */ (function () {
         this.ingredients.push(ingredient);
         this.ingredientChanged.emit(this.ingredients.slice());
     };
+    ShoppingListService.prototype.addIngredients = function (ingredients) {
+        var _a;
+        (_a = this.ingredients).push.apply(_a, ingredients);
+        this.ingredientChanged.emit(this.ingredients.slice());
+    };
     ShoppingListService = __decorate([
         core_1.Injectable({
             providedIn: 'root',
