@@ -5,14 +5,14 @@ import { ShoppingListService } from "./shopping-list/shopping-list.service";
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/recipes'},
+  {path: '', redirectTo: '/recipes', pathMatch: 'full'},
   {path: 'recipes', component: RecipesComponent },
   {path: 'shopping-list', component: ShoppingListService}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

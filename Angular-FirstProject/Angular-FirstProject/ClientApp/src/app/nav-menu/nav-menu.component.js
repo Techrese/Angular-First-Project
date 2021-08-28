@@ -11,7 +11,6 @@ var core_1 = require("@angular/core");
 var NavMenuComponent = /** @class */ (function () {
     function NavMenuComponent() {
         this.isExpanded = false;
-        this.featureSelected = new core_1.EventEmitter();
     }
     NavMenuComponent.prototype.collapse = function () {
         this.isExpanded = false;
@@ -19,12 +18,6 @@ var NavMenuComponent = /** @class */ (function () {
     NavMenuComponent.prototype.toggle = function () {
         this.isExpanded = !this.isExpanded;
     };
-    NavMenuComponent.prototype.onSelect = function (feature) {
-        this.featureSelected.emit(feature);
-    };
-    __decorate([
-        core_1.Output()
-    ], NavMenuComponent.prototype, "featureSelected", void 0);
     NavMenuComponent = __decorate([
         core_1.Component({
             selector: 'app-nav-menu',

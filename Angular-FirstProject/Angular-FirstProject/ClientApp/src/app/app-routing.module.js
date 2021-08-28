@@ -8,9 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var recipes_component_1 = require("./recipes/recipes.component");
 var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 var appRoutes = [
+    { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     { path: 'recipes', component: recipes_component_1.RecipesComponent },
     { path: 'shopping-list', component: shopping_list_service_1.ShoppingListService }
 ];
@@ -18,7 +20,10 @@ var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
-        core_1.NgModule({})
+        core_1.NgModule({
+            imports: [router_1.RouterModule.forRoot(appRoutes)],
+            exports: [router_1.RouterModule]
+        })
     ], AppRoutingModule);
     return AppRoutingModule;
 }());
