@@ -10,14 +10,9 @@ exports.RecipesComponent = void 0;
 var core_1 = require("@angular/core");
 var recipe_service_1 = require("./recipe.service");
 var RecipesComponent = /** @class */ (function () {
-    function RecipesComponent(recipeService) {
-        this.recipeService = recipeService;
+    function RecipesComponent() {
     }
     RecipesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.recipeService.recipeSelected.subscribe(function (recipe) {
-            _this.selectedRecipe = recipe;
-        });
     };
     RecipesComponent = __decorate([
         core_1.Component({

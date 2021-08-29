@@ -9,9 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShoppingListService = void 0;
 var core_1 = require("@angular/core");
 var ingredients_model_1 = require("../Shared/ingredients.model");
+var rxjs_1 = require("rxjs");
 var ShoppingListService = /** @class */ (function () {
     function ShoppingListService() {
-        this.ingredientChanged = new core_1.EventEmitter();
+        this.ingredientChanged = new rxjs_1.Subject();
         this.ingredients = [
             new ingredients_model_1.Ingredient('Apples', 1),
             new ingredients_model_1.Ingredient('Tomatoes', 10)
@@ -22,12 +23,12 @@ var ShoppingListService = /** @class */ (function () {
     };
     ShoppingListService.prototype.addIngredient = function (ingredient) {
         this.ingredients.push(ingredient);
-        this.ingredientChanged.emit(this.ingredients.slice());
+        this.ingredientChanged.next(this.ingredients.slice());
     };
     ShoppingListService.prototype.addIngredients = function (ingredients) {
         var _a;
         (_a = this.ingredients).push.apply(_a, ingredients);
-        this.ingredientChanged.emit(this.ingredients.slice());
+        this.ingredientChanged.next(this.ingredients.slice());
     };
     ShoppingListService = __decorate([
         core_1.Injectable({

@@ -13,7 +13,6 @@ var recipe_model_1 = require("./recipe.model");
 var RecipeService = /** @class */ (function () {
     function RecipeService(slService) {
         this.slService = slService;
-        this.recipeSelected = new core_1.EventEmitter();
         this.recipes = [
             new recipe_model_1.Recipe('Tasty Schnitzel', 'Tasty', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('French Fries', 20)]),
             new recipe_model_1.Recipe('Burger', 'burger', 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('Buns', 2)])

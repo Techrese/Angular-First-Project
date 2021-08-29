@@ -15,9 +15,12 @@ var ShoppingListComponent = /** @class */ (function () {
     ShoppingListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.ingredients = this.slService.getIngredients();
-        this.slService.ingredientChanged.subscribe(function (ingredients) {
+        this.igChangeSub = this.slService.ingredientChanged.subscribe(function (ingredients) {
             _this.ingredients = ingredients;
         });
+    };
+    ShoppingListComponent.prototype.ngOnDestroy = function () {
+        this.igChangeSub.unsubscribe();
     };
     ShoppingListComponent = __decorate([
         core_1.Component({
