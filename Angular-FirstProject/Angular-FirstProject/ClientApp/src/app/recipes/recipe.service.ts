@@ -12,14 +12,20 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Tasty Schnitzel', 'Tasty', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg', [new Ingredient('Meat', 1), new Ingredient('French Fries',20)]),
-    new Recipe('Burger', 'Tasty', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg', [new Ingredient('Meat', 1), new Ingredient('Buns', 2)])
+    new Recipe('Tasty Schnitzel', 'Tasty', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG', [new Ingredient('Meat', 1), new Ingredient('French Fries',20)]),
+    new Recipe('Burger', 'burger', 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', [new Ingredient('Meat', 1), new Ingredient('Buns', 2)])
   ];
 
   getRecipes() {
 
     return this.recipes.slice();
   }
+
+  getRecipe(id: number) {
+
+    return this.recipes[id];
+  }
+
 
   constructor(private slService: ShoppingListService) { }
 

@@ -9,11 +9,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeListComponent = void 0;
 var core_1 = require("@angular/core");
 var RecipeListComponent = /** @class */ (function () {
-    function RecipeListComponent(recipeService) {
+    function RecipeListComponent(recipeService, router, route) {
         this.recipeService = recipeService;
+        this.router = router;
+        this.route = route;
     }
     RecipeListComponent.prototype.ngOnInit = function () {
         this.recipes = this.recipeService.getRecipes();
+    };
+    RecipeListComponent.prototype.onNewRecipe = function () {
+        this.router.navigate(['new'], { relativeTo: this.route });
     };
     RecipeListComponent = __decorate([
         core_1.Component({

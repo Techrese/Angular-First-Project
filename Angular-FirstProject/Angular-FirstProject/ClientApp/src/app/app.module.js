@@ -21,6 +21,8 @@ var dropdown_directive_1 = require("./Shared/dropdown.directive");
 var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 var app_routing_module_1 = require("./app-routing.module");
 var forms_1 = require("@angular/forms");
+var recipe_start_component_1 = require("./recipes/recipe-start/recipe-start.component");
+var recipe_edit_component_1 = require("./recipes/recipe-edit/recipe-edit.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -35,7 +37,9 @@ var AppModule = /** @class */ (function () {
                 recipe_list_component_1.RecipeListComponent,
                 recipe_detail_component_1.RecipeDetailComponent,
                 recipe_item_component_1.RecipeItemComponent,
-                dropdown_directive_1.DropdownDirective
+                dropdown_directive_1.DropdownDirective,
+                recipe_start_component_1.RecipeStartComponent,
+                recipe_edit_component_1.RecipeEditComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

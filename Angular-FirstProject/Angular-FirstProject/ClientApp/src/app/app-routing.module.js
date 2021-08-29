@@ -9,11 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var recipe_detail_component_1 = require("./recipes/recipe-detail/recipe-detail.component");
+var recipe_edit_component_1 = require("./recipes/recipe-edit/recipe-edit.component");
+var recipe_start_component_1 = require("./recipes/recipe-start/recipe-start.component");
 var recipes_component_1 = require("./recipes/recipes.component");
 var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 var appRoutes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'recipes', component: recipes_component_1.RecipesComponent },
+    { path: 'recipes', component: recipes_component_1.RecipesComponent, children: [
+            { path: '', component: recipe_start_component_1.RecipeStartComponent },
+            { path: 'new', component: recipe_edit_component_1.RecipeEditComponent },
+            { path: ':id', component: recipe_detail_component_1.RecipeDetailComponent },
+            { path: ':id/edit', component: recipe_edit_component_1.RecipeEditComponent }
+        ] },
     { path: 'shopping-list', component: shopping_list_service_1.ShoppingListService }
 ];
 var AppRoutingModule = /** @class */ (function () {

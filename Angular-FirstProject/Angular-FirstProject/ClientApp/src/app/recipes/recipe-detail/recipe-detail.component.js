@@ -9,17 +9,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeDetailComponent = void 0;
 var core_1 = require("@angular/core");
 var RecipeDetailComponent = /** @class */ (function () {
-    function RecipeDetailComponent(recipeService) {
+    function RecipeDetailComponent(recipeService, route, router) {
         this.recipeService = recipeService;
+        this.route = route;
+        this.router = router;
     }
     RecipeDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.id = +params['id'];
+            _this.recipe = _this.recipeService.getRecipe(_this.id);
+        });
     };
     RecipeDetailComponent.prototype.onAddToShoppingList = function () {
         this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
     };
-    __decorate([
-        core_1.Input()
-    ], RecipeDetailComponent.prototype, "recipe", void 0);
+    RecipeDetailComponent.prototype.onEditRecipe = function () {
+        this.router.navigate(['edit'], { relativeTo: this.route });
+    };
     RecipeDetailComponent = __decorate([
         core_1.Component({
             selector: 'app-recipe-detail',

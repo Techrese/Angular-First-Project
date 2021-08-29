@@ -15,12 +15,15 @@ var RecipeService = /** @class */ (function () {
         this.slService = slService;
         this.recipeSelected = new core_1.EventEmitter();
         this.recipes = [
-            new recipe_model_1.Recipe('Tasty Schnitzel', 'Tasty', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('French Fries', 20)]),
-            new recipe_model_1.Recipe('Burger', 'Tasty', 'https://www.maxpixel.net/static/photo/1x/Meat-Recipe-Duck-Tasty-Fry-Food-Duck-Breast-4813261.jpg', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('Buns', 2)])
+            new recipe_model_1.Recipe('Tasty Schnitzel', 'Tasty', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('French Fries', 20)]),
+            new recipe_model_1.Recipe('Burger', 'burger', 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('Buns', 2)])
         ];
     }
     RecipeService.prototype.getRecipes = function () {
         return this.recipes.slice();
+    };
+    RecipeService.prototype.getRecipe = function (id) {
+        return this.recipes[id];
     };
     RecipeService.prototype.addIngredientsToShoppingList = function (ingredients) {
         this.slService.addIngredients(ingredients);
