@@ -13,7 +13,7 @@ var recipe_detail_component_1 = require("./recipes/recipe-detail/recipe-detail.c
 var recipe_edit_component_1 = require("./recipes/recipe-edit/recipe-edit.component");
 var recipe_start_component_1 = require("./recipes/recipe-start/recipe-start.component");
 var recipes_component_1 = require("./recipes/recipes.component");
-var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
+var shopping_list_component_1 = require("./shopping-list/shopping-list.component");
 var appRoutes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     { path: 'recipes', component: recipes_component_1.RecipesComponent, children: [
@@ -22,7 +22,7 @@ var appRoutes = [
             { path: ':id', component: recipe_detail_component_1.RecipeDetailComponent },
             { path: ':id/edit', component: recipe_edit_component_1.RecipeEditComponent }
         ] },
-    { path: 'shopping-list', component: shopping_list_service_1.ShoppingListService }
+    { path: 'shopping-list', component: shopping_list_component_1.ShoppingListComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

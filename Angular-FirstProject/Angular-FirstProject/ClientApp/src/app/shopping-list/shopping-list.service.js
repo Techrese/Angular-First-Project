@@ -13,6 +13,7 @@ var rxjs_1 = require("rxjs");
 var ShoppingListService = /** @class */ (function () {
     function ShoppingListService() {
         this.ingredientChanged = new rxjs_1.Subject();
+        this.startedEditing = new rxjs_1.Subject();
         this.ingredients = [
             new ingredients_model_1.Ingredient('Apples', 1),
             new ingredients_model_1.Ingredient('Tomatoes', 10)

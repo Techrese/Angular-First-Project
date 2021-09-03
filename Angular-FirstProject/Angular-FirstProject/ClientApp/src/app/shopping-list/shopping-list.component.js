@@ -19,6 +19,9 @@ var ShoppingListComponent = /** @class */ (function () {
             _this.ingredients = ingredients;
         });
     };
+    ShoppingListComponent.prototype.onEditItem = function (index) {
+        this.slService.startedEditing.next(index);
+    };
     ShoppingListComponent.prototype.ngOnDestroy = function () {
         this.igChangeSub.unsubscribe();
     };

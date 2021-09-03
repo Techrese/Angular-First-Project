@@ -12,12 +12,22 @@ var ingredients_model_1 = require("../../Shared/ingredients.model");
 var ShoppingEditComponent = /** @class */ (function () {
     function ShoppingEditComponent(slService) {
         this.slService = slService;
+        this.editMode = false;
     }
     ShoppingEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = this.slService.startedEditing.subscribe(function (index) {
+            _this.editMode = true;
+            _this.editedItemIndex = index;
+        });
     };
-    ShoppingEditComponent.prototype.onAddItem = function () {
-        var newIngredient = new ingredients_model_1.Ingredient("test", 1);
+    ShoppingEditComponent.prototype.onAddItem = function (form) {
+        var value = form.value;
+        var newIngredient = new ingredients_model_1.Ingredient(value.name, value.amount);
         this.slService.addIngredient(newIngredient);
+    };
+    ShoppingEditComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     ShoppingEditComponent = __decorate([
         core_1.Component({
