@@ -19,16 +19,29 @@ var ShoppingEditComponent = /** @class */ (function () {
         this.subscription = this.slService.startedEditing.subscribe(function (index) {
             _this.editMode = true;
             _this.editedItemIndex = index;
+            _this.editedItem = _this.slService.getIngredient(index);
+            _this.slForm.setValue({
+                name: _this.editedItem.name,
+                amount: _this.editedItem.amount
+            });
         });
     };
     ShoppingEditComponent.prototype.onAddItem = function (form) {
         var value = form.value;
         var newIngredient = new ingredients_model_1.Ingredient(value.name, value.amount);
-        this.slService.addIngredient(newIngredient);
+        if (this.editMode) {
+            this.slService.updateIngredient(this.editedItemIndex, newIngredient);
+        }
+        else {
+            this.slService.addIngredient(newIngredient);
+        }
     };
     ShoppingEditComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
     };
+    __decorate([
+        core_1.ViewChild('f', { static: false })
+    ], ShoppingEditComponent.prototype, "slForm", void 0);
     ShoppingEditComponent = __decorate([
         core_1.Component({
             selector: 'app-shopping-edit',

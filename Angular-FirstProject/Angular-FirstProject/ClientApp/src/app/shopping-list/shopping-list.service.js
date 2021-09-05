@@ -22,6 +22,9 @@ var ShoppingListService = /** @class */ (function () {
     ShoppingListService.prototype.getIngredients = function () {
         return this.ingredients.slice();
     };
+    ShoppingListService.prototype.getIngredient = function (index) {
+        return this.ingredients[index];
+    };
     ShoppingListService.prototype.addIngredient = function (ingredient) {
         this.ingredients.push(ingredient);
         this.ingredientChanged.next(this.ingredients.slice());
@@ -29,6 +32,10 @@ var ShoppingListService = /** @class */ (function () {
     ShoppingListService.prototype.addIngredients = function (ingredients) {
         var _a;
         (_a = this.ingredients).push.apply(_a, ingredients);
+        this.ingredientChanged.next(this.ingredients.slice());
+    };
+    ShoppingListService.prototype.updateIngredient = function (index, newIngredient) {
+        this.ingredients[index] = newIngredient;
         this.ingredientChanged.next(this.ingredients.slice());
     };
     ShoppingListService = __decorate([
