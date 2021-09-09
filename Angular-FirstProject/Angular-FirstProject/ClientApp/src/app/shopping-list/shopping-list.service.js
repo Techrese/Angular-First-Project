@@ -38,6 +38,10 @@ var ShoppingListService = /** @class */ (function () {
         this.ingredients[index] = newIngredient;
         this.ingredientChanged.next(this.ingredients.slice());
     };
+    ShoppingListService.prototype.deleteIngredient = function (index) {
+        this.ingredients.splice(index);
+        this.ingredientChanged.next(this.ingredients.slice());
+    };
     ShoppingListService = __decorate([
         core_1.Injectable({
             providedIn: 'root',

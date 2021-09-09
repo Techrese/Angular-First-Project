@@ -35,6 +35,15 @@ var ShoppingEditComponent = /** @class */ (function () {
         else {
             this.slService.addIngredient(newIngredient);
         }
+        this.editMode = false;
+    };
+    ShoppingEditComponent.prototype.onClear = function () {
+        this.slForm.reset();
+        this.editMode = false;
+    };
+    ShoppingEditComponent.prototype.onDelete = function () {
+        this.slService.deleteIngredient(this.editedItemIndex);
+        this.onClear();
     };
     ShoppingEditComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
