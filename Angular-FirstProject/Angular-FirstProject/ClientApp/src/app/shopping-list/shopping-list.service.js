@@ -39,7 +39,7 @@ var ShoppingListService = /** @class */ (function () {
         this.ingredientChanged.next(this.ingredients.slice());
     };
     ShoppingListService.prototype.deleteIngredient = function (index) {
-        this.ingredients.splice(index);
+        this.ingredients.splice(index, 1);
         this.ingredientChanged.next(this.ingredients.slice());
     };
     ShoppingListService = __decorate([

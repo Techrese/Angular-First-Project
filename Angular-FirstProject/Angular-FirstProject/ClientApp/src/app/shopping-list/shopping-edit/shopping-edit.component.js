@@ -26,7 +26,7 @@ var ShoppingEditComponent = /** @class */ (function () {
             });
         });
     };
-    ShoppingEditComponent.prototype.onAddItem = function (form) {
+    ShoppingEditComponent.prototype.onSubmit = function (form) {
         var value = form.value;
         var newIngredient = new ingredients_model_1.Ingredient(value.name, value.amount);
         if (this.editMode) {
