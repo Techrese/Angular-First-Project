@@ -44,7 +44,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
                 app_routing_module_1.AppRoutingModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule
             ],
             providers: [shopping_list_service_1.ShoppingListService],
             bootstrap: [app_component_1.AppComponent]
