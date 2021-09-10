@@ -15,6 +15,10 @@ var RecipeListComponent = /** @class */ (function () {
         this.route = route;
     }
     RecipeListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.recipeService.recipesChanged.subscribe(function (recipes) {
+            _this.recipes = recipes;
+        });
         this.recipes = this.recipeService.getRecipes();
     };
     RecipeListComponent.prototype.onNewRecipe = function () {

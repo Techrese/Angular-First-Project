@@ -37,25 +37,37 @@ var RecipeEditComponent = /** @class */ (function () {
                 for (var _i = 0, _a = recipe.ingredients; _i < _a.length; _i++) {
                     var ingredient = _a[_i];
                     recipeIngredients.push(new forms_1.FormGroup({
-                        'name': new forms_1.FormControl(ingredient.name),
-                        'amount': new forms_1.FormControl(ingredient.amount)
+                        'name': new forms_1.FormControl(ingredient.name, forms_1.Validators.required),
+                        'amount': new forms_1.FormControl(ingredient.amount, [
+                            forms_1.Validators.required,
+                            forms_1.Validators.pattern(/^ [1 - 9] + [0 - 9] * $/)
+                        ])
                     }));
                 }
             }
         }
         this.recipeForm = new forms_1.FormGroup({
-            'name': new forms_1.FormControl(recipeName),
-            'imagePath': new forms_1.FormControl(recipeImagePath),
-            'description': new forms_1.FormControl(recipeDescription),
+            'name': new forms_1.FormControl(recipeName, forms_1.Validators.required),
+            'imagePath': new forms_1.FormControl(recipeImagePath, forms_1.Validators.required),
+            'description': new forms_1.FormControl(recipeDescription, forms_1.Validators.required),
             'ingredients': recipeIngredients
         });
     };
     RecipeEditComponent.prototype.onSubmit = function () {
+        if (this.editMode) {
+            this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+        }
+        else {
+            this.recipeService.addRecipe(this.recipeForm.value);
+        }
     };
     RecipeEditComponent.prototype.onAddIngredient = function () {
         this.recipeForm.get('ingredients').push(new forms_1.FormGroup({
-            'name': new forms_1.FormControl(),
-            'amount': new forms_1.FormControl()
+            'name': new forms_1.FormControl(null, forms_1.Validators.required),
+            'amount': new forms_1.FormControl(null, [
+                forms_1.Validators.required,
+                forms_1.Validators.pattern(/^ [1 - 9] + [0 - 9] * $/)
+            ])
         }));
     };
     RecipeEditComponent = __decorate([
