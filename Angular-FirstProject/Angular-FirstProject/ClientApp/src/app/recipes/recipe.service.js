@@ -37,6 +37,10 @@ var RecipeService = /** @class */ (function () {
         this.recipes[index] = newRecipe;
         this.recipesChanged.next(this.recipes.slice());
     };
+    RecipeService.prototype.deleteRecipe = function (index) {
+        this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice());
+    };
     RecipeService = __decorate([
         core_1.Injectable({
             providedIn: 'root',

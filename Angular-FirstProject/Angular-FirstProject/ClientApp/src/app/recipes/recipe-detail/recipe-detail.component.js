@@ -27,6 +27,9 @@ var RecipeDetailComponent = /** @class */ (function () {
     RecipeDetailComponent.prototype.onEditRecipe = function () {
         this.router.navigate(['edit'], { relativeTo: this.route });
     };
+    RecipeDetailComponent.prototype.onDeleteRecipe = function () {
+        this.recipeService.deleteRecipe(this.id);
+    };
     RecipeDetailComponent = __decorate([
         core_1.Component({
             selector: 'app-recipe-detail',

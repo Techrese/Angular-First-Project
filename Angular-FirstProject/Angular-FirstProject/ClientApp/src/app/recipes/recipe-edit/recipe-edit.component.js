@@ -10,9 +10,10 @@ exports.RecipeEditComponent = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var RecipeEditComponent = /** @class */ (function () {
-    function RecipeEditComponent(route, recipeService) {
+    function RecipeEditComponent(route, recipeService, router) {
         this.route = route;
         this.recipeService = recipeService;
+        this.router = router;
         this.editMode = false;
     }
     RecipeEditComponent.prototype.ngOnInit = function () {
@@ -60,6 +61,7 @@ var RecipeEditComponent = /** @class */ (function () {
         else {
             this.recipeService.addRecipe(this.recipeForm.value);
         }
+        this.onCancel();
     };
     RecipeEditComponent.prototype.onAddIngredient = function () {
         this.recipeForm.get('ingredients').push(new forms_1.FormGroup({
@@ -69,6 +71,9 @@ var RecipeEditComponent = /** @class */ (function () {
                 forms_1.Validators.pattern(/^ [1 - 9] + [0 - 9] * $/)
             ])
         }));
+    };
+    RecipeEditComponent.prototype.onCancel = function () {
+        this.router.navigate(['../'], { relativeTo: this.route });
     };
     RecipeEditComponent = __decorate([
         core_1.Component({
