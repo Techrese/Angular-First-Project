@@ -75,6 +75,9 @@ var RecipeEditComponent = /** @class */ (function () {
     RecipeEditComponent.prototype.onCancel = function () {
         this.router.navigate(['../'], { relativeTo: this.route });
     };
+    RecipeEditComponent.prototype.onDeleteIngredient = function (index) {
+        this.recipeForm.get('ingredients').removeAt(index);
+    };
     RecipeEditComponent = __decorate([
         core_1.Component({
             selector: 'app-recipe-edit',

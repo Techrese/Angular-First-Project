@@ -29,6 +29,7 @@ var RecipeDetailComponent = /** @class */ (function () {
     };
     RecipeDetailComponent.prototype.onDeleteRecipe = function () {
         this.recipeService.deleteRecipe(this.id);
+        this.router.navigate(['/recipes']);
     };
     RecipeDetailComponent = __decorate([
         core_1.Component({

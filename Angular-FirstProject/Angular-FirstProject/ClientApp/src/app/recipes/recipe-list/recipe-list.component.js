@@ -16,13 +16,16 @@ var RecipeListComponent = /** @class */ (function () {
     }
     RecipeListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.recipeService.recipesChanged.subscribe(function (recipes) {
+        this.subscription = this.recipeService.recipesChanged.subscribe(function (recipes) {
             _this.recipes = recipes;
         });
         this.recipes = this.recipeService.getRecipes();
     };
     RecipeListComponent.prototype.onNewRecipe = function () {
         this.router.navigate(['new'], { relativeTo: this.route });
+    };
+    RecipeListComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     RecipeListComponent = __decorate([
         core_1.Component({
