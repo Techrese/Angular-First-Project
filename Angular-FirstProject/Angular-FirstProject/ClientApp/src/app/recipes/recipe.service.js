@@ -9,17 +9,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeService = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
-var ingredients_model_1 = require("../Shared/ingredients.model");
-var recipe_model_1 = require("./recipe.model");
 var RecipeService = /** @class */ (function () {
     function RecipeService(slService) {
         this.slService = slService;
         this.recipesChanged = new rxjs_1.Subject();
-        this.recipes = [
-            new recipe_model_1.Recipe('Tasty Schnitzel', 'Tasty', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('French Fries', 20)]),
-            new recipe_model_1.Recipe('Burger', 'burger', 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', [new ingredients_model_1.Ingredient('Meat', 1), new ingredients_model_1.Ingredient('Buns', 2)])
-        ];
+        this.recipes = [];
     }
+    RecipeService.prototype.setRecipes = function (recipes) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    };
     RecipeService.prototype.getRecipes = function () {
         return this.recipes.slice();
     };
@@ -42,7 +41,7 @@ var RecipeService = /** @class */ (function () {
         this.recipesChanged.next(this.recipes.slice());
     };
     RecipeService = __decorate([
-        core_1.Injectable({
+        (0, core_1.Injectable)({
             providedIn: 'root',
         })
     ], RecipeService);

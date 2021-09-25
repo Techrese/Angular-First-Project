@@ -79,7 +79,7 @@ var RecipeEditComponent = /** @class */ (function () {
         this.recipeForm.get('ingredients').removeAt(index);
     };
     RecipeEditComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'app-recipe-edit',
             templateUrl: './recipe-edit.component.html',
             styleUrls: ['./recipe-edit.component.css']

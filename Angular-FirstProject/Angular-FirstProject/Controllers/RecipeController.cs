@@ -1,7 +1,9 @@
 ﻿using Angular_FirstProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Angular_FirstProject.Controllers
 {
@@ -17,26 +19,29 @@ namespace Angular_FirstProject.Controllers
         }
 
         [HttpGet]
-        public List<Recipe> GetRecipes()
+        public async Task<ActionResult<List<Recipe>>> GetRecipes()
         {
             return _context.Recipes.ToList();
         }
 
         [HttpPost]
-        public void AddRecipe(Recipe recipe)
+        public async Task<ActionResult> AddRecipe(List<Recipe> recipes)
         {
-            _context.Recipes.Add(recipe);
+            foreach (var recipe in recipes)
+            {
+                recipe.Id = Guid.NewGuid();
+                _context.Recipes.Add(recipe);
+            }
             _context.SaveChanges();
+            return Ok();
         }
 
         [HttpPut]
-        public void EditRecipe(Recipe recipe)
+        public async Task<ActionResult> EditRecipe(List<Recipe> recipe)
         {
             _context.Entry(recipe).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
+            return Ok();
         }
-
-
-
     }
 }

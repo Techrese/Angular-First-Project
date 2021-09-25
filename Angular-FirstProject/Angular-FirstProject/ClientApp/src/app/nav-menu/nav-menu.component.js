@@ -9,7 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavMenuComponent = void 0;
 var core_1 = require("@angular/core");
 var NavMenuComponent = /** @class */ (function () {
-    function NavMenuComponent() {
+    function NavMenuComponent(dataStorageService) {
+        this.dataStorageService = dataStorageService;
         this.isExpanded = false;
     }
     NavMenuComponent.prototype.collapse = function () {
@@ -18,8 +19,14 @@ var NavMenuComponent = /** @class */ (function () {
     NavMenuComponent.prototype.toggle = function () {
         this.isExpanded = !this.isExpanded;
     };
+    NavMenuComponent.prototype.onSaveData = function () {
+        this.dataStorageService.storeRecipes();
+    };
+    NavMenuComponent.prototype.onFetchData = function () {
+        this.dataStorageService.fetchRecipes();
+    };
     NavMenuComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'app-nav-menu',
             templateUrl: './nav-menu.component.html',
             styleUrls: ['./nav-menu.component.css']

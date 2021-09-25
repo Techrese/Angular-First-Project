@@ -32,7 +32,7 @@ var RecipeDetailComponent = /** @class */ (function () {
         this.router.navigate(['/recipes']);
     };
     RecipeDetailComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'app-recipe-detail',
             templateUrl: './recipe-detail.component.html',
             styleUrls: ['./recipe-detail.component.css']

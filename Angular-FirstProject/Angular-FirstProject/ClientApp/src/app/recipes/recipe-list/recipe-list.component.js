@@ -28,7 +28,7 @@ var RecipeListComponent = /** @class */ (function () {
         this.subscription.unsubscribe();
     };
     RecipeListComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'app-recipe-list',
             templateUrl: './recipe-list.component.html',
             styleUrls: ['./recipe-list.component.css']

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataStorageService } from '../Shared/data-storage.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -14,5 +15,16 @@ export class NavMenuComponent {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  constructor(private dataStorageService: DataStorageService) { }
+
+  onSaveData() {
+
+    this.dataStorageService.storeRecipes();
+  }
+
+  onFetchData() {
+    this.dataStorageService.fetchRecipes();
   }
 }

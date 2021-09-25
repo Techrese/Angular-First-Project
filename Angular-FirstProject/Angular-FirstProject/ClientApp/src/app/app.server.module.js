@@ -16,7 +16,7 @@ var AppServerModule = /** @class */ (function () {
     function AppServerModule() {
     }
     AppServerModule = __decorate([
-        core_1.NgModule({
+        (0, core_1.NgModule)({
             imports: [app_module_1.AppModule, platform_server_1.ServerModule, module_map_ngfactory_loader_1.ModuleMapLoaderModule],
             bootstrap: [app_component_1.AppComponent]
         })

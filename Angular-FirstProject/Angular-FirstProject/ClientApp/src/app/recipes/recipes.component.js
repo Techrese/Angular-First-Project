@@ -15,7 +15,7 @@ var RecipesComponent = /** @class */ (function () {
     RecipesComponent.prototype.ngOnInit = function () {
     };
     RecipesComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'app-recipes',
             templateUrl: './recipes.component.html',
             styleUrls: ['./recipes.component.css'],

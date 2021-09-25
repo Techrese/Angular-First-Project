@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,6 +19,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataStorageService = void 0;
 var core_1 = require("@angular/core");
+var operators_1 = require("rxjs/operators");
 var DataStorageService = /** @class */ (function () {
     function DataStorageService(http, recipeService) {
         this.http = http;
@@ -15,6 +27,19 @@ var DataStorageService = /** @class */ (function () {
     }
     DataStorageService.prototype.storeRecipes = function () {
         var recipes = this.recipeService.getRecipes();
+        this.http.post('https://localhost:44301/api/recipe', recipes).subscribe(function (response) {
+            console.log(response);
+        });
+    };
+    DataStorageService.prototype.fetchRecipes = function () {
+        var _this = this;
+        this.http.get('https://localhost:44301/api/recipe').pipe((0, operators_1.map)(function (recipes) {
+            return recipes.map(function (recipe) {
+                return __assign(__assign({}, recipe), { ingredients: recipe.ingredients ? recipe.ingredients : [] });
+            });
+        })).subscribe(function (recipes) {
+            _this.recipeService.setRecipes(recipes);
+        });
     };
     DataStorageService = __decorate([
         (0, core_1.Injectable)({ providedIn: 'root' })

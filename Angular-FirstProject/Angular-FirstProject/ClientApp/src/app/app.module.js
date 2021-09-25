@@ -24,11 +24,13 @@ var forms_1 = require("@angular/forms");
 var recipe_start_component_1 = require("./recipes/recipe-start/recipe-start.component");
 var recipe_edit_component_1 = require("./recipes/recipe-edit/recipe-edit.component");
 var recipe_service_1 = require("./recipes/recipe.service");
+var data_storage_service_1 = require("./Shared/data-storage.service");
+var http_1 = require("@angular/common/http");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        core_1.NgModule({
+        (0, core_1.NgModule)({
             declarations: [
                 app_component_1.AppComponent,
                 nav_menu_component_1.NavMenuComponent,
@@ -46,9 +48,10 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
-                forms_1.ReactiveFormsModule
+                forms_1.ReactiveFormsModule,
+                http_1.HttpClientModule
             ],
-            providers: [shopping_list_service_1.ShoppingListService, recipe_service_1.RecipeService],
+            providers: [shopping_list_service_1.ShoppingListService, recipe_service_1.RecipeService, data_storage_service_1.DataStorageService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
