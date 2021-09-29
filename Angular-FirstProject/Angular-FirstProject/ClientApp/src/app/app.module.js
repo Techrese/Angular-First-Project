@@ -26,6 +26,7 @@ var recipe_edit_component_1 = require("./recipes/recipe-edit/recipe-edit.compone
 var recipe_service_1 = require("./recipes/recipe.service");
 var data_storage_service_1 = require("./Shared/data-storage.service");
 var http_1 = require("@angular/common/http");
+var auth_component_1 = require("./auth/auth.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -43,6 +44,7 @@ var AppModule = /** @class */ (function () {
                 dropdown_directive_1.DropdownDirective,
                 recipe_start_component_1.RecipeStartComponent,
                 recipe_edit_component_1.RecipeEditComponent,
+                auth_component_1.AuthComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -38,6 +38,7 @@
     <None Remove="ClientApp\src\app\app-routing.module.ts" />
     <None Remove="ClientApp\src\app\recipes\recipe.model.ts" />
     <None Remove="ClientApp\src\app\recipes\recipe.service.ts" />
+    <None Remove="ClientApp\src\app\recipes\recipes-resolver.service.ts" />
     <None Remove="ClientApp\src\app\Shared\data-storage.service.ts" />
     <None Remove="ClientApp\src\app\Shared\dropdown.directive.ts" />
     <None Remove="ClientApp\src\app\Shared\ingredients.model.ts" />

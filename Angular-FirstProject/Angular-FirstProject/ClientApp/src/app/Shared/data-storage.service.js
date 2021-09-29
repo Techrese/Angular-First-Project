@@ -33,13 +33,13 @@ var DataStorageService = /** @class */ (function () {
     };
     DataStorageService.prototype.fetchRecipes = function () {
         var _this = this;
-        this.http.get('https://localhost:44301/api/recipe').pipe((0, operators_1.map)(function (recipes) {
+        return this.http.get('https://localhost:44301/api/recipe').pipe((0, operators_1.map)(function (recipes) {
             return recipes.map(function (recipe) {
                 return __assign(__assign({}, recipe), { ingredients: recipe.ingredients ? recipe.ingredients : [] });
             });
-        })).subscribe(function (recipes) {
+        }), (0, operators_1.tap)(function (recipes) {
             _this.recipeService.setRecipes(recipes);
-        });
+        }));
     };
     DataStorageService = __decorate([
         (0, core_1.Injectable)({ providedIn: 'root' })

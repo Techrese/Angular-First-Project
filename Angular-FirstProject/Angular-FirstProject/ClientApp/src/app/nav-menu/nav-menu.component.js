@@ -23,7 +23,7 @@ var NavMenuComponent = /** @class */ (function () {
         this.dataStorageService.storeRecipes();
     };
     NavMenuComponent.prototype.onFetchData = function () {
-        this.dataStorageService.fetchRecipes();
+        this.dataStorageService.fetchRecipes().subscribe();
     };
     NavMenuComponent = __decorate([
         (0, core_1.Component)({

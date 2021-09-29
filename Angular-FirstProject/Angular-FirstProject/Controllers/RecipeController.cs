@@ -32,7 +32,7 @@ namespace Angular_FirstProject.Controllers
                 recipe.Id = Guid.NewGuid();
                 _context.Recipes.Add(recipe);
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
